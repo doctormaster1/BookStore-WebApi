@@ -37,10 +37,10 @@ namespace WebApi.Controllers{
         public IActionResult AddBook([FromBody] CreateBookModel newBook){
             try{
                 CreateBookCommand command = new CreateBookCommand(_context);
-            command.Modal = newBook;
-            command.Handle();
+                command.Modal = newBook;
+                command.Handle();
 
-            return Ok();
+                return Ok();
             }catch(Exception ex){
                 return BadRequest(ex.Message);
             }  
