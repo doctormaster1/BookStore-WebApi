@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using AutoMapper;
-using WebApi.Common;
 using WebApi.DBOperations;
 
 namespace WebApi.BookOperations.GetBookDetail{
@@ -18,7 +17,6 @@ namespace WebApi.BookOperations.GetBookDetail{
             if(book is null) throw new InvalidOperationException("Kitap Bulunamadı!");
 
             BookDetailViewModel vm = _mapper.Map<BookDetailViewModel>(book);
-
             return vm;
         }
     }

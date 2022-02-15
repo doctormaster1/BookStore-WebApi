@@ -17,11 +17,11 @@ namespace WebApi.BookOperations.CreateBook{
             var book = _dbContext.Books.SingleOrDefault(x => x.Title == Modal.Title);
             if(book is not null) throw new InvalidOperationException("Kitap Mevcut");
 
-            book = _mapper.Map<Book>(Modal);
-            
+            book = _mapper.Map<Book>(Modal);          
             _dbContext.Books.Add(book);
             _dbContext.SaveChanges();
         }
+
         public class CreateBookModel{
             public string Title { get; set; }
             public int GenreId { get; set; }
