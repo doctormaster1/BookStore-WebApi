@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
 using AutoMapper;
+using WebApi.Entities;
 using WebApi.DBOperations;
 
-namespace WebApi.BookOperations.CreateBook{
+namespace WebApi.Application.BookOperations.CreateBook{
     public class CreateBookCommand{
         public CreateBookModel Modal { get; set; }
         private readonly BookStoreDbContext _dbContext;

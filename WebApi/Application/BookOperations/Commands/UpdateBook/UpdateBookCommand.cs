@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using WebApi.DBOperations;
 
-namespace WebApi.BookOperations.UpdateBook{
+namespace WebApi.Application.BookOperations.UpdateBook{
     public class UpdateBookCommand{
         private readonly BookStoreDbContext _dbContext;
         public int BookId { get; set; }
