@@ -8,8 +8,9 @@ using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
 
-namespace Application.BookOperations.Commands.CreateBook{
-    public class CreateBookCommandTests : IClassFixture<CommandTestFixture>{
+namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook{
+    public class CreateBookCommandTests : IClassFixture<CommandTestFixture>
+    {
         private readonly BookStoreDbContext _context;
         private readonly IMapper _mapper;
         public CreateBookCommandTests(CommandTestFixture testFixture){
@@ -18,9 +19,9 @@ namespace Application.BookOperations.Commands.CreateBook{
         }
 
         [Fact]
-        public void WhenAlreadyExistBookTitleIsGiven_InvalidOperationExeption_ShouldBeReturn(){
+        public void Book_HataMesajiTesti_KitapMevcut(){
             var book = new Book(){
-                Title = "Test_WhenAlreadyExistBookTitleIsGiven_InvalidOperationExeption_ShouldBeReturn", 
+                Title = "Hata Mesaji Testi", 
                 PublishDate = new System.DateTime(1990,01,10), 
                 PageCount = 100, 
                 GenreId = 1
@@ -35,7 +36,7 @@ namespace Application.BookOperations.Commands.CreateBook{
         }
 
         [Fact]
-        public void WhenValidInputsAreGiven_Book_ShouldBeCreated(){
+        public void Book_BasariliTest_Ok(){
             CreateBookCommand command = new CreateBookCommand(_context,_mapper);
             CreateBookModel model = new CreateBookModel(){
                 Title = "Hobbit",
