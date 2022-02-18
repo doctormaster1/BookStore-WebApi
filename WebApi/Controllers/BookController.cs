@@ -12,9 +12,11 @@ using WebApi.DBOperations;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]s")]
-    public class BookController : ControllerBase{
+    public class BookController : ControllerBase
+    {
 
         private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
@@ -25,7 +27,8 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetBooks(){
+        public IActionResult GetBooks()
+        {
             GetBookQuery query = new GetBookQuery(_context,_mapper);
             List<BooksViewModel> result = new List<BooksViewModel>();
 
@@ -34,7 +37,8 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id){
+        public IActionResult GetById(int id)
+        {
             BookDetailViewModel result = new BookDetailViewModel();
             GetBookDetailQuery query = new GetBookDetailQuery(_context,_mapper);
             GetBookDetailQueryValidation validator = new GetBookDetailQueryValidation();
@@ -46,7 +50,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddBook([FromBody] CreateBookModel newBook){
+        public IActionResult AddBook([FromBody] CreateBookModel newBook)
+        {
             CreateBookCommand command = new CreateBookCommand(_context,_mapper);
             CreateBookCommandValidator validator = new CreateBookCommandValidator();
 
@@ -57,7 +62,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id, [FromBody] UpdateBookViewModel updatedBook){
+        public IActionResult UpdateBook(int id, [FromBody] UpdateBookViewModel updatedBook)
+        {
             UpdateBookCommand command = new UpdateBookCommand(_context);
             UpdateBookCommandValidation validator = new UpdateBookCommandValidation();
 
@@ -69,7 +75,8 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteBook(int id){
+        public IActionResult DeleteBook(int id)
+        {
             DeleteBookCommand command = new DeleteBookCommand(_context);
             DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
 
