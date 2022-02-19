@@ -20,7 +20,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.DeleteBook
         public void Book_HataMesajiTesti_KitapBulunamadi()
         {
             DeleteBookCommand command = new DeleteBookCommand(_context);
-            command.BookId = 17;
+            command.BookId = 0;
             var book = _context.Books.SingleOrDefault(x=> x.Id == command.BookId);
 
             FluentActions.Invoking(() => command.Handle()).Should().Throw<InvalidOperationException>().And.Message.Should().Be("Silinecek Kitap Bulunamadı!");

@@ -49,22 +49,6 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.UpdateBook
         }
 
         [Fact]
-        public void Validator_BasariliIdGiris_Ok()
-        {
-            UpdateBookCommand command = new UpdateBookCommand(null);
-            command.Modal = new UpdateBookViewModel()
-            {
-                Title = "Lord Of The Rings",
-                GenreId = 2
-            };
-            command.BookId = 2;
-
-            UpdateBookCommandValidation validator = new UpdateBookCommandValidation();
-            var result = validator.Validate(command);
-            result.Errors.Count.Should().Equals(0);
-        }
-
-        [Fact]
         public void Validator_BasariliGiris_Ok()
         {
             UpdateBookCommand command = new UpdateBookCommand(null);
@@ -73,6 +57,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.UpdateBook
                 Title = "Lord Of The Rings",
                 GenreId = 2
             };
+            command.BookId = 2;
 
             UpdateBookCommandValidation validator = new UpdateBookCommandValidation();
             var result = validator.Validate(command);

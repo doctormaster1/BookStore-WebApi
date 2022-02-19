@@ -5,7 +5,7 @@ using Xunit;
 
 namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetail
 {
-    public class GetBookDetailQueryTests : IClassFixture<CommandTestFixture>
+    public class GetBookDetailQueryValidatorTests : IClassFixture<CommandTestFixture>
     {
         [Theory]
         [InlineData(0)]
