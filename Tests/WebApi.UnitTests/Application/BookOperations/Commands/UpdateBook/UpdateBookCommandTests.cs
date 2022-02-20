@@ -14,7 +14,7 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.UpdateBook
 {
     public class UpdateBookCommandTests : IClassFixture<CommandTestFixture>
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         public UpdateBookCommandTests(CommandTestFixture testFixture)
         {
             _context = testFixture.Context;

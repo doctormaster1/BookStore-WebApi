@@ -4,7 +4,7 @@ using WebApi.Entities;
 
 namespace TestSetup{
     public static class Books{
-        public static void AddBooks(this BookStoreDbContext context){
+        public static void AddBooks(this IBookStoreDbContext context){
             context.Books.AddRange(
                 new Book{
                     Title = "Lean Startup",
